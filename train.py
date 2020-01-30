@@ -23,18 +23,18 @@ from options.train_options import TrainOptions
 from data import create_dataset
 from models import create_model
 from util.visualizer import Visualizer
-# tensorboard
+from util import *
 from torch.utils.tensorboard import SummaryWriter
-
+import torchvision
+import os
 
 if __name__ == '__main__':
-    # tensorboard shit : 
+     # tensorboard shit : 
     tb = SummaryWriter(os.path.join("runs"), flush_secs=20)
-
+    
     opt = TrainOptions().parse()   # get training options
     dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     dataset_size = len(dataset)    # get the number of images in the dataset.
-
     print('The number of training images = %d' % dataset_size)
 
     model = create_model(opt)      # create a model given opt.model and other options
@@ -43,6 +43,7 @@ if __name__ == '__main__':
     total_iters = 0                # the total number of training iterations
 
     for epoch in range(opt.epoch_count, opt.n_epochs + opt.n_epochs_decay + 1):    # outer loop for different epochs; we save the model by <epoch_count>, <epoch_count>+<save_latest_freq>
+        print('################### EPOCH {} ######################'.format(epoch))
         epoch_start_time = time.time()  # timer for entire epoch
         iter_data_time = time.time()    # timer for data loading per iteration
         epoch_iter = 0                  # the number of training iterations in current epoch, reset to 0 every epoch
@@ -62,21 +63,38 @@ if __name__ == '__main__':
                 save_result = total_iters % opt.update_html_freq == 0
                 model.compute_visuals()
                 visualizer.display_current_results(model.get_current_visuals(), epoch, save_result)
+            
 
             if total_iters % opt.print_freq == 0:    # print training losses and save logging information to the disk
                 losses = model.get_current_losses()
-                print(losses)
                 t_comp = (time.time() - iter_start_time) / opt.batch_size
                 visualizer.print_current_losses(epoch, epoch_iter, losses, t_comp, t_data)
                 if opt.display_id > 0:
                     visualizer.plot_current_losses(epoch, float(epoch_iter) / dataset_size, losses)
 
-            if total_iters % opt.save_latest_freq == 0:   #cache our latest model every <save_latest_freq> iterations
+            if total_iters % opt.save_latest_freq == 0:   # cache our latest model every <save_latest_freq> iterations
                 print('saving the latest model (epoch %d, total_iters %d)' % (epoch, total_iters))
                 save_suffix = 'iter_%d' % total_iters if opt.save_by_iter else 'latest'
                 model.save_networks(save_suffix)
 
             iter_data_time = time.time()
+            
+        tb.add_scalars('Generator', {"G_A": losses['G_A'], "G_B": losses['G_B']},
+                       epoch)
+                       
+        tb.add_scalars('Discriminator', {"D_A": losses['D_A'], "D_B": losses['D_B']},
+                       epoch)
+                       
+        tb.add_scalars('Cycle', {"cycle_A": losses['cycle_A'], "cycle_B": losses['cycle_B']},
+                       epoch)
+                       
+        tb.add_scalars('idt', {"idt_A": losses['idt_A'], "idt_B": losses['idt_B']},
+                       epoch)
+                       
+
+        tb.close()
+        
+        
         if epoch % opt.save_epoch_freq == 0:              # cache our model every <save_epoch_freq> epochs
             print('saving the model at the end of epoch %d, iters %d' % (epoch, total_iters))
             model.save_networks('latest')
