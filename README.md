@@ -60,9 +60,9 @@ python test.py --dataroot datasets/rpedata --name rpedata --dataset_mode aligned
 * For unpaired mode, you should have 4 folders : trainA, trainB, testA, testB with images in both domains.
 
 
-* You can download an unpaired version of Human U2OS cells : [unpaired_dataset](https://drive.google.com/file/d/1qmNF0GBrR8OP7s4zzZHaVwXUvSbKDsJX/view?usp=sharing). 
+* You can download an unpaired version of Human U2OS cells : [Unpaired_dataset](https://drive.google.com/file/d/1qmNF0GBrR8OP7s4zzZHaVwXUvSbKDsJX/view?usp=sharing). 
 
-* You can download a paired version of Human Retinal Pigment Epithelium (RPE) cells :[paired data](https://drive.google.com/file/d/1dwfrabUz5WsPEmVqDrZrtZZm41ccutR8/view?usp=sharing)
+* You can download a paired version of Human Retinal Pigment Epithelium (RPE) cells : [Paired data](https://drive.google.com/file/d/1dwfrabUz5WsPEmVqDrZrtZZm41ccutR8/view?usp=sharing)
 
 
 ## Notebook :
