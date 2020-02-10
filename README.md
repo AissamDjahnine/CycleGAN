@@ -40,14 +40,19 @@ cd CycleGAN
   
 - Train a model:
 ```bash
-#!./scripts/train_cyclegan.sh
-python train.py --dataroot ./datasets/data --name maps_cyclegan --model cycle_gan
+python train.py --dataroot ./datasets/rpedata --name rpedata --model cycle_gan --gan_mode vanilla --dataset_mode unaligned --n_epochs 100 --n_epochs_decay 50 --save_epoch_freq 20 
 ```
 To see more intermediate results, check out `./checkpoints/maps_cyclegan/web/index.html`.
 - Test the model:
+
+* Change the `--dataroot` and `--name` to be consistent with your trained model's configuration.
+
+* Using --model cycle_gan requires loading and generating results in both directions. The results will be saved at ./results/. Use --results_dir {directory_path_to_save_result} to specify the results directory.
+
+* For your own experiments, you might want to specify --netG, --norm, --no_dropout to match the generator architecture of the trained model.
+
 ```bash
-#!./scripts/test_cyclegan.sh
-python test.py --dataroot ./datasets/data --name maps_cyclegan --model cycle_gan
+python test.py --dataroot datasets/rpedata --name rpedata --dataset_mode aligned --no_dropout  --model cycle_gan --norm
 ```
 - The test results will be saved to a html file here: `./results/maps_cyclegan/latest_test/index.html`.
 
