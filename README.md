@@ -2,20 +2,18 @@
 <br><br><br>
 
 # CycleGAN in PyTorch
-
 We provide PyTorch implementations for both unpaired and paired image-to-image translation.
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
-The code was strongly inspired by : [Jun-Yan Zhu](https://github.com/junyanz) and [Taesung Park](https://github.com/taesung), and supported by [Tongzhou Wang](https://ssnl.github.io/).
+The code was strongly inspired by the code written by : [Jun-Yan Zhu](https://github.com/junyanz) and [Taesung Park](https://github.com/taesung).
 
 
 <img src="https://github.com/AissamDjahnine/cycle/blob/master/imgs/head.jpg" width="800"/>
 
 
 
-If you use this code for your research, please cite:
-
-Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks.<br>
-[Jun-Yan Zhu](https://people.eecs.berkeley.edu/~junyanz/)\*,  [Taesung Park](https://taesung.me/)\*, [Phillip Isola](https://people.eecs.berkeley.edu/~isola/), [Alexei A. Efros](https://people.eecs.berkeley.edu/~efros). In ICCV 2017. (* equal contributions) [[Bibtex]](https://junyanz.github.io/CycleGAN/CycleGAN.txt)
+## Motivation
 
 
 ## Prerequisites
@@ -53,3 +51,32 @@ python test.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan
 
 ## Acknowledgments
 Our code is inspired by [pytorch-DCGAN](https://github.com/pytorch/examples/tree/master/dcgan).
+
+### Tensorboard 
+
+If you're familiar with Tensorboard , skip this section 
+
+In your terminal, run:
+
+```bash
+tensorboard --logdir ./runs
+```
+
+## References 
+
+* Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks.<br>
+[Jun-Yan Zhu](https://people.eecs.berkeley.edu/~junyanz/)\,  [Taesung Park](https://taesung.me/)\, [Phillip Isola](https://people.eecs.berkeley.edu/~isola/), [Alexei A. Efros](https://people.eecs.berkeley.edu/~efros). In ICCV 2017.
+
+* "Generative Adversarial Networks." Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio. ArXiv 2014.
+
+* "Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks" Alec Radford, Luke Metz, Soumith Chintala
+
+## Questions :
+[![Generic badge](https://img.shields.io/badge/TEST-VERSION-RED.svg)](https://github.com/AissamDjahnine)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/AissamDjahnine)
+[![GitHub followers](https://img.shields.io/github/followers/Naereen.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/AissamDjahnine?tab=followers)
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please feel free to contact if case of issues.
+
