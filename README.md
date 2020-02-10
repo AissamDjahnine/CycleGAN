@@ -8,7 +8,7 @@ We provide PyTorch implementations for both unpaired and paired image-to-image t
 The code was strongly inspired by : [Jun-Yan Zhu](https://github.com/junyanz) and [Taesung Park](https://github.com/taesung), and supported by [Tongzhou Wang](https://ssnl.github.io/).
 
 
-<img src="https://junyanz.github.io/CycleGAN/images/teaser_high_res.jpg" width="800"/>
+<img src="https://github.com/AissamDjahnine/cycle/blob/master/imgs/head.jpg" width="800"/>
 
 
 
