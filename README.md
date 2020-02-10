@@ -50,9 +50,6 @@ python test.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan
 - The test results will be saved to a html file here: `./results/maps_cyclegan/latest_test/index.html`.
 
 
-- If you would like to apply a pre-trained model to a collection of input images (rather than image pairs), please use `--model test` option. See `./scripts/test_single.sh` for how to apply a model to Facade label maps (stored in the directory `facades/testB`).
-
-- See a list of currently available models at `./scripts/download_pix2pix_model.sh`
 
 ## Acknowledgments
 Our code is inspired by [pytorch-DCGAN](https://github.com/pytorch/examples/tree/master/dcgan).
