@@ -53,6 +53,14 @@ python test.py --dataroot datasets/rpedata --name rpedata --dataset_mode aligned
 ```
 - The test results will be saved to a html file here: `./results/maps_cyclegan/latest_test/index.html`.
 
+## Unpaired, Paired datasets : 
+
+* For paired mode, please use the python function : combine_A_B.py to join train images. you should have two folders : train and test with joined images.
+* For unpaired mode, you should have 4 folders : trainA, trainB, testA, testB with images in both domains.
+
+https://github.com/AissamDjahnine/CycleGAN/blob/master/imgs/train_dataset_ex.jpg
+
+
 ## Notebook :
 * You find the notebook associated with this projects. after cloning the project , open the notebook and follow instructions
 
