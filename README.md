@@ -2,24 +2,21 @@
 <br><br><br>
 
 # CycleGAN in PyTorch
-We provide PyTorch implementations for both unpaired and paired image-to-image translation.
+We provide PyTorch implementation for both unpaired and paired image-to-image translation applied for medical image segmentation.
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
-The code was strongly inspired by the code written by : [Jun-Yan Zhu](https://github.com/junyanz) and [Taesung Park](https://github.com/taesung).
-
+The code was strongly inspired by the code of : [Jun-Yan Zhu](https://github.com/junyanz) and [Taesung Park](https://github.com/taesung).
 
 <img src="https://github.com/AissamDjahnine/cycle/blob/master/imgs/head.jpg" width="800"/>
-
-
 
 ## Motivation
 ### The main objective of this work is twofold :
 * Generate synthetic cell images that model the distribution
 of the input images for data augmentation. Use both of
-the synthetic and real cells images for training a contextaware CNN that can accurately segment these cells. See : [GANs](http://pytorch.org)
+the synthetic and real cells images for training a contextaware CNN that can accurately segment these cells. See : [GANs](https://github.com/AissamDjahnine/gans)
 
-* We propose to employ a segmentation method based on cycle-consistent generative adversarial networks (CycleGANs) that can be trained even in absence of prepared image-mask pairs
+* We propose to employ a segmentation method based on cycle-consistent generative adversarial networks that can be trained even in absence of prepared image-mask pairs
 
 ## Prerequisites
 - Python 3
