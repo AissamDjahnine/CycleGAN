@@ -14,10 +14,14 @@ The code was strongly inspired by the code written by : [Jun-Yan Zhu](https://gi
 
 
 ## Motivation
+### The main objective of this work is twofold :
+* Generate synthetic cell images that model the distribution
+of the input images for data augmentation. Use both of
+the synthetic and real cells images for training a contextaware CNN that can accurately segment these cells. See : [GANs](http://pytorch.org)
 
+* We propose to employ a segmentation method based on cycle-consistent generative adversarial networks (CycleGANs) that can be trained even in absence of prepared image-mask pairs
 
 ## Prerequisites
-- Linux or macOS
 - Python 3
 - CPU or NVIDIA GPU + CUDA CuDNN
 
@@ -26,8 +30,8 @@ The code was strongly inspired by the code written by : [Jun-Yan Zhu](https://gi
 
 - Clone this repo:
 ```bash
-git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
-cd pytorch-CycleGAN-and-pix2pix
+git clone https://github.com/AissamDjahnine/CycleGAN.git
+cd CycleGAN
 ```
 
 - Install [PyTorch](http://pytorch.org) and 0.4+ and other dependencies (e.g., torchvision and [dominate](https://github.com/Knio/dominate)).
@@ -37,22 +41,20 @@ cd pytorch-CycleGAN-and-pix2pix
 - Train a model:
 ```bash
 #!./scripts/train_cyclegan.sh
-python train.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan
+python train.py --dataroot ./datasets/data --name maps_cyclegan --model cycle_gan
 ```
 To see more intermediate results, check out `./checkpoints/maps_cyclegan/web/index.html`.
 - Test the model:
 ```bash
 #!./scripts/test_cyclegan.sh
-python test.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan
+python test.py --dataroot ./datasets/data --name maps_cyclegan --model cycle_gan
 ```
 - The test results will be saved to a html file here: `./results/maps_cyclegan/latest_test/index.html`.
 
+## Notebook :
+* You find the notebook associated with this projects. after cloning the project , open the notebook and follow instructions
 
-
-## Acknowledgments
-Our code is inspired by [pytorch-DCGAN](https://github.com/pytorch/examples/tree/master/dcgan).
-
-### Tensorboard 
+## Tensorboard 
 
 If you're familiar with Tensorboard , skip this section 
 
@@ -62,6 +64,11 @@ In your terminal, run:
 tensorboard --logdir ./runs
 ```
 
+* You should be looking to :
+![gans](https://github.com/AissamDjahnine/CycleGAN/blob/master/imgs/tensorboard.jpg)
+
+## Acknowledgments
+Our code is inspired by [pytorch-DCGAN](https://github.com/pytorch/examples/tree/master/dcgan).
 ## References 
 
 * Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks.<br>
