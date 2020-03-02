@@ -4,7 +4,8 @@
 # CycleGAN in PyTorch
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
-We provide PyTorch implementation for both unpaired and paired image-to-image translation applied for medical image segmentation.
+
+### We provide PyTorch implementation for both unpaired and paired image-to-image translation applied for medical image segmentation.
 
 
 The code was strongly inspired by the code of : [Jun-Yan Zhu](https://github.com/junyanz) and [Taesung Park](https://github.com/taesung).
